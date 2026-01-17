@@ -75,12 +75,12 @@ def apply_custom_style():
             right: 0;
             width: 325px;
             z-index: 1000;
-            border-radius: 0 0 0 35px !important; 
+            border-radius: 0 0 0 30px !important; 
             overflow: hidden !important;
         }
         .fixed-image img {
             width: 100% !important;
-            border-radius: 0 0 0 35px !important;
+            border-radius: 0 0 0 25px !important;
             object-fit: cover;
         }
 
