@@ -101,7 +101,7 @@ def apply_custom_style():
         .fixed-image img {
             width: 100% !important;
             /* ต้องแก้ให้ตรงกันทั้งที่กล่อง และที่ตัวรูปภาพด้วยครับ */
-            border-radius: 0 0 0 50px !important;
+            border-radius: 0 0 0 25px !important;
             object-fit: cover;
         }
 
