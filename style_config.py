@@ -92,7 +92,7 @@ def apply_custom_style():
             
             /* ระบุความโค้ง: [บนซ้าย] [บนขวา] [ล่างขวา] [ล่างซ้าย] */
             /* ตัวอย่างด้านล่างคือ: โค้งแค่มุมบนขวา 100px มุมอื่นเป็น 0 (เหลี่ยม) */
-            border-radius: 0 0 0 100px !important; 
+            border-radius: 0 0 0 50px !important; 
             
             overflow: hidden !important;
             box-shadow: 0 0 0 rgba(0,0,0,0);
@@ -101,7 +101,7 @@ def apply_custom_style():
         .fixed-image img {
             width: 100% !important;
             /* ต้องแก้ให้ตรงกันทั้งที่กล่อง และที่ตัวรูปภาพด้วยครับ */
-            border-radius: 0 0 0 100px !important;
+            border-radius: 0 0 0 50px !important;
             object-fit: cover;
         }
 
