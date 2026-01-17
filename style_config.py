@@ -72,40 +72,34 @@ def apply_custom_style():
             position: fixed;
             left: 0;
             bottom: 0;
-            width: 100%; /* เปลี่ยนกลับเป็น 100% เพื่อให้พอดีจอ */
+            width: 100%;
             background-color: rgba(45, 62, 51, 0.95);
             color: white;
             text-align: center;
             padding: 12px 0;
-            font-size: 14px; /* ปรับขนาดให้พอดี */
+            font-size: 14px;
             z-index: 9999;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพที่แปะไว้กับที่ (Fixed Image) --- */
+        /* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพแบบ Fixed --- */
         .fixed-image {
             position: fixed;
             margin-top: -530px !important;
             margin-left: 850px;
             width: 350px;
             z-index: 1000;
-/* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพที่แปะไว้กับที่ (Fixed Image) --- */
-        .fixed-image {
-            position: fixed;
-            margin-top: -530px !important;
-            margin-left: 850px;
-            width: 350px;
-            z-index: 1000;
-            
-            /* บังคับตัดส่วนเกิน */
-            border-radius: 100px !important;
-            overflow: hidden !important;
+            border-radius: 50px !important; /* ปรับความโค้งตรงนี้ */
+            overflow: hidden !important;   /* บังคับตัดรูปให้โค้งตามกล่อง */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* เพิ่มเงาให้ดูนูน */
         }
 
-        /* เพิ่มส่วนนี้: บังคับให้รูปข้างในโค้งตามด้วย */
+        /* บังคับรูปข้างในให้เต็มกล่องและโค้งตาม */
         .fixed-image img {
-            border-radius: 100px !important;
-            object-fit: cover; /* ป้องกันรูปเบี้ยวเวลาขยาย */
+            width: 100% !important;
+            height: auto;
+            border-radius: 50px !important;
+            object-fit: cover;
         }
         </style>
     """, unsafe_allow_html=True)
