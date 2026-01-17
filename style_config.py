@@ -89,8 +89,6 @@ def apply_custom_style():
             margin-left: 850px;
             width: 350px;
             z-index: 1000;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-            border-radius: 10px;
         }
         </style>
     """, unsafe_allow_html=True)
