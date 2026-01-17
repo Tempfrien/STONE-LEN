@@ -112,7 +112,7 @@ def apply_custom_style():
         /* --- SECTION 8: ปรับแต่งสำหรับมือถือ (Responsive) --- */
         @media (max-width: 768px) {
             .fixed-image { width: 130px; border-radius: 0 0 0 10px !important; }
-            .main-title { font-size: 45px !important; margin-top: -30px !important; }
+            .main-title { font-size: 60px !important; margin-top: -30px !important; }
             .footer-bar { font-size: 12px; }
             [data-testid="stFileUploader"] { width: 100% !important; }
         }
