@@ -11,7 +11,18 @@ def apply_custom_style():
         [data-testid="stDecoration"] {display:none !important;}
         [data-testid="stStatusWidget"] {display: none !important;}
         .viewerBadge_container__1QSob {display: none !important;}
-
+        /* ทำให้ชื่อ Tab เป็นสีขาวและมีเงา */
+        button[data-baseweb="tab"] p {
+            color: white !important;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8) !important;
+            font-size: 18px !important;
+        }
+        
+        /* ทำให้ข้อความใน camera input และ uploader ชัดขึ้น */
+        .stCameraInput label, .stFileUploader label {
+            color: white !important;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.8) !important;
+        }
         /* --- SECTION 2: พื้นหลังแอป --- */
         .stApp {
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
