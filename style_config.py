@@ -89,9 +89,21 @@ def apply_custom_style():
             margin-left: 850px;
             width: 350px;
             z-index: 1000;
-            border-radius: 50px !important; /* ปรับความโค้งตรงนี้ */
-            overflow: hidden !important;   /* บังคับตัดรูปให้โค้งตามกล่อง */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* เพิ่มเงาให้ดูนูน */
+            
+            /* ระบุความโค้ง: [บนซ้าย] [บนขวา] [ล่างขวา] [ล่างซ้าย] */
+            /* ตัวอย่างด้านล่างคือ: โค้งแค่มุมบนขวา 100px มุมอื่นเป็น 0 (เหลี่ยม) */
+            border-radius: 0 100px 0 0 !important; 
+            
+            overflow: hidden !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .fixed-image img {
+            width: 100% !important;
+            height: auto;
+            /* ต้องแก้ให้ตรงกันทั้งที่กล่อง และที่ตัวรูปภาพด้วยครับ */
+            border-radius: 0 0 0 100px !important;
+            object-fit: cover;
         }
 
         /* บังคับรูปข้างในให้เต็มกล่องและโค้งตาม */
