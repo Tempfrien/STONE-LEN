@@ -4,11 +4,18 @@ from PIL import Image, ImageOps
 import numpy as np
 from style_config import apply_custom_style
 
-# 1. ตั้งค่าหน้าเว็บและดึงสไตล์
+# 1. ตั้งค่าหน้าเว็บและดึงสไตล์ (ต้องอยู่บรรทัดแรกๆ)
 st.set_page_config(page_title="STONE LEN - Rock Classification", layout="wide")
 apply_custom_style()
 
-# 2. แสดงผล UI (ส่วนหัว)
+# 2. ติดโลโก้ Fixed (วางไว้บนสุดเพื่อให้โหลดค้างไว้ตลอดเวลา)
+st.markdown("""
+    <div class="fixed-image">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1j2yrrBp-xXv1vfk4fdrIxZxVmyX4Bszu" width="100%">
+    </div>
+    """, unsafe_allow_html=True)
+
+# 3. แสดงผล UI (ส่วนหัว)
 st.markdown('<h1 class="main-title">STONE LEN</h1>', unsafe_allow_html=True)
 st.markdown("""
     <p style="color: white; font-size: 20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
@@ -20,7 +27,7 @@ st.markdown("""
     </p>
     """, unsafe_allow_html=True)
 
-# 3. Logic การทำงาน (AI & Model)
+# 4. Logic การทำงาน (AI & Model)
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model("keras_model.h5", compile=False)
@@ -32,7 +39,7 @@ def load_labels():
 model = load_model()
 labels = load_labels()
 
-# 4. ส่วนรับข้อมูลภาพ
+# 5. ส่วนรับข้อมูลภาพ
 st.markdown("<div style='margin-top: 10px;'></div>", unsafe_allow_html=True)
 file = st.file_uploader("", type=["jpg", "jpeg", "png"])
 
@@ -66,18 +73,9 @@ if file is not None:
             </div>
         """, unsafe_allow_html=True)
 
-# 5. Footer (ปรับปรุงใหม่)
+# 6. Footer แถบชื่อผู้พัฒนา
 st.markdown("""
     <div class="footer-bar">
         Creators : Chadaporn Boonnii, Nopphanat Junnunl, Saranya Changkeb, Phatcharakamon Sodsri
     </div>
     """, unsafe_allow_html=True)
-
-# --- ย้ายส่วนที่ 6 มาไว้ตรงนี้ (บนสุดของเนื้อหา) ---
-st.markdown("""
-    <div class="fixed-image">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1j2yrrBp-xXv1vfk4fdrIxZxVmyX4Bszu" width="100%">
-    </div>
-    """, unsafe_allow_html=True)
-
-# 2. แสดงผล UI (ส่วนหัว) ต่อไปตามปกติ...
