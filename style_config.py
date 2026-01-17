@@ -73,7 +73,7 @@ def apply_custom_style():
         .footer-bar {
             position: fixed;
             left: 0;
-            margin-left: 10px !important;
+            margin-left: -110px !important;
             bottom: 0;
             width: 150%;
             background-color: rgba(45, 62, 51, 0.95);
