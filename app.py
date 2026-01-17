@@ -76,6 +76,6 @@ st.markdown("""
 # 6. ติดโลโก้ ใส่รูปภาพแบบ Fixed (เปลี่ยน URL รูปภาพเป็นรูปที่คุณต้องการ)
 st.markdown("""
     <div class="fixed-image">
-        <img src="https://lh3.googleusercontent.com/u/0/d/1sSKAfPSwZrRgby1fwPZJm3qDsYSzKAej" width="10000%">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1sSKAfPSwZrRgby1fwPZJm3qDsYSzKAej" width="200%" !important;>
     </div>
     """, unsafe_allow_html=True)
