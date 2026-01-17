@@ -14,14 +14,27 @@ if 'page' not in st.session_state:
 def change_page(name):
     st.session_state.page = name
 
-# --- ZONE 2: องค์ประกอบลอยตัว (Fixed Image) ---
+# --- ZONE 2: Logic AI (โหลดทิ้งไว้ที่ส่วนกลางเพื่อป้องกัน NameError) ---
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model("keras_model.h5", compile=False)
+
+def load_labels():
+    with open("labels.txt", "r", encoding="utf-8") as f:
+        return [line.strip() for line in f.readlines()]
+
+# เรียกใช้งาน Model และ Labels ไว้ที่นี่
+model = load_model()
+labels = load_labels()
+
+# --- ZONE 3: องค์ประกอบลอยตัว (Fixed Image) ---
 st.markdown("""
     <div class="fixed-image">
         <img src="https://lh3.googleusercontent.com/u/0/d/1j2yrrBp-xXv1vfk4fdrIxZxVmyX4Bszu">
     </div>
     """, unsafe_allow_html=True)
 
-# --- ZONE 3: หน้าหลัก (AI Classification) ---
+# --- ZONE 4: หน้าหลัก (AI Classification) ---
 if st.session_state.page == 'Main':
     st.markdown('<h1 class="main-title">STONE LEN</h1>', unsafe_allow_html=True)
     
@@ -31,13 +44,12 @@ if st.session_state.page == 'Main':
 
     st.markdown('<p class="sub-text">ROCK CLASSIFICATION : ถ่ายรูปหรืออัปโหลดรูปเพื่อจำแนกประเภทหิน</p>', unsafe_allow_html=True)
 
-    # สร้าง Tab เพื่อเลือกวิธีนำเข้ารูปภาพ
+    # ระบบเลือกนำเข้ารูปภาพ
     tab1, tab2 = st.tabs(["📸 ถ่ายภาพสด", "📁 อัปโหลดไฟล์"])
-
     source_img = None
 
     with tab1:
-        cam_file = st.camera_input("กดปุ่มเพื่อเปิดกล้อง")
+        cam_file = st.camera_input("กดถ่ายภาพหิน")
         if cam_file:
             source_img = cam_file
 
@@ -46,7 +58,6 @@ if st.session_state.page == 'Main':
         if uploaded_file:
             source_img = uploaded_file
 
-    # --- ส่วนการประมวลผล (จะทำงานเมื่อมีรูปจากช่องทางใดช่องทางหนึ่ง) ---
     if source_img is not None:
         st.markdown("---")
         col1, col2 = st.columns([1, 1])
@@ -55,7 +66,7 @@ if st.session_state.page == 'Main':
         with col1:
             st.image(image, caption="รูปที่ใช้ประมวลผล", use_container_width=True)
         
-        # Logic AI (ใช้ Model และ Labels เดิมที่โหลดไว้)
+        # ประมวลผล AI
         size = (224, 224)
         image_processed = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
         img_array = np.asarray(image_processed)
@@ -76,7 +87,7 @@ if st.session_state.page == 'Main':
                 </div>
             """, unsafe_allow_html=True)
 
-# --- ZONE 4: หน้าความรู้ (Rock Info) ---
+# --- ZONE 5: หน้าความรู้ (Rock Info) ---
 elif st.session_state.page == 'Knowledge':
     st.markdown('<h1 class="main-title">ROCK INFO</h1>', unsafe_allow_html=True)
     
@@ -99,7 +110,7 @@ elif st.session_state.page == 'Knowledge':
         </div>
     """, unsafe_allow_html=True)
 
-# --- ZONE 5: แถบรายชื่อผู้พัฒนา ---
+# --- ZONE 6: แถบรายชื่อผู้พัฒนา ---
 st.markdown("""
     <div class="footer-bar">
         Creators : Chadaporn Boonnii, Nopphanat Junnunl, Saranya Changkeb, Phatcharakamon Sodsri
