@@ -29,30 +29,33 @@ if st.session_state.page == 'Main':
         change_page('Knowledge')
         st.rerun()
 
-    st.markdown('<p class="sub-text">ROCK CLASSIFICATION : อัปโหลดรูปเพื่อจำแนกประเภทหิน</p>', unsafe_allow_html=True)
+    st.markdown('<p class="sub-text">ROCK CLASSIFICATION : ถ่ายรูปหรืออัปโหลดรูปเพื่อจำแนกประเภทหิน</p>', unsafe_allow_html=True)
 
-    # Logic AI
-    @st.cache_resource
-    def load_model():
-        return tf.keras.models.load_model("keras_model.h5", compile=False)
+    # สร้าง Tab เพื่อเลือกวิธีนำเข้ารูปภาพ
+    tab1, tab2 = st.tabs(["📸 ถ่ายภาพสด", "📁 อัปโหลดไฟล์"])
 
-    def load_labels():
-        with open("labels.txt", "r", encoding="utf-8") as f:
-            return [line.strip() for line in f.readlines()]
+    source_img = None
 
-    model = load_model()
-    labels = load_labels()
+    with tab1:
+        cam_file = st.camera_input("กดปุ่มเพื่อเปิดกล้อง")
+        if cam_file:
+            source_img = cam_file
 
-    file = st.file_uploader("", type=["jpg", "jpeg", "png"])
+    with tab2:
+        uploaded_file = st.file_uploader("เลือกรูปภาพจากเครื่อง", type=["jpg", "jpeg", "png"])
+        if uploaded_file:
+            source_img = uploaded_file
 
-    if file is not None:
+    # --- ส่วนการประมวลผล (จะทำงานเมื่อมีรูปจากช่องทางใดช่องทางหนึ่ง) ---
+    if source_img is not None:
         st.markdown("---")
         col1, col2 = st.columns([1, 1])
-        image = Image.open(file).convert("RGB")
-        with col1:
-            st.image(image, caption="รูปที่อัปโหลด", use_container_width=True)
+        image = Image.open(source_img).convert("RGB")
         
-        # ประมวลผล
+        with col1:
+            st.image(image, caption="รูปที่ใช้ประมวลผล", use_container_width=True)
+        
+        # Logic AI (ใช้ Model และ Labels เดิมที่โหลดไว้)
         size = (224, 224)
         image_processed = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
         img_array = np.asarray(image_processed)
