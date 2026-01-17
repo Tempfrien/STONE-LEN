@@ -66,16 +66,12 @@ if file is not None:
             </div>
         """, unsafe_allow_html=True)
 
-# 5. Footer (ท้ายไฟล์ app.py)
+# 5. Footer (ปรับปรุงใหม่)
 st.markdown("""
     <div class="footer-bar">
         Creators : Chadaporn Boonnii, Nopphanat Junnunl, Saranya Changkeb, Phatcharakamon Sodsri
     </div>
     """, unsafe_allow_html=True)
-
-# 1. ตั้งค่าหน้าเว็บและดึงสไตล์
-st.set_page_config(page_title="STONE LEN - Rock Classification", layout="wide")
-apply_custom_style()
 
 # --- ย้ายส่วนที่ 6 มาไว้ตรงนี้ (บนสุดของเนื้อหา) ---
 st.markdown("""
