@@ -72,3 +72,10 @@ st.markdown("""
         Creators : Chadaporn Boonnii, Nopphanat Junnunl, Saranya Changkeb, Phatcharakamon Sodsri
     </div>
     """, unsafe_allow_html=True)
+
+# 6. ติดโลโก้ ใส่รูปภาพแบบ Fixed (เปลี่ยน URL รูปภาพเป็นรูปที่คุณต้องการ)
+st.markdown("""
+    <div class="fixed-image">
+        <img src="https://lh3.googleusercontent.com/u/0/d/1stiQl7iYduf3UykhWxWJI9NlY3xGY1y7" width="100%">
+    </div>
+    """, unsafe_allow_html=True)
