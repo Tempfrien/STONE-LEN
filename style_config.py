@@ -51,6 +51,8 @@ def apply_custom_style():
             text-align: center !important;
         }
 
+        
+
         /* --- ส่วนที่ 4: ปุ่ม Upload file --- */
         button[kind="secondary"] {
             font-size: 0 !important;
@@ -103,6 +105,21 @@ def apply_custom_style():
             /* ต้องแก้ให้ตรงกันทั้งที่กล่อง และที่ตัวรูปภาพด้วยครับ */
             border-radius: 0 0 0 35px !important;
             object-fit: cover;
+        }
+
+        /* --- ส่วนที่ 7: กล่องแสดงผลการวิเคราะห์ AI --- */
+        .result-box {
+            background-color: rgba(255, 255, 255, 0.9); /* สีขาว โปร่งแสงเล็กน้อย */
+            border-radius: 20px;       /* มุมโค้งมนเหมือนกล่องอัปโหลด */
+            padding: 25px;            /* เว้นระยะห่างจากขอบกล่องด้านใน */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูนูนขึ้นมา */
+            color: #333333 !important; /* บังคับให้ตัวหนังสือข้างในเป็นสีเข้มเพื่อให้อ่านง่าย */
+            margin-top: 20px;
+        }
+
+        .result-box h2 {
+            color: #2d3e33 !important; /* สีหัวข้อผลการวิเคราะห์ */
+            margin-bottom: 15px;
         }
 
 
