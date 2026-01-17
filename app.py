@@ -32,6 +32,23 @@ st.markdown("""
         <b>วิธีใช้งาน</b><br>
         1. ถ่ายรูปภาพหินที่ต้องการทราบชนิด<br>
         2. อัปโหลดรูปภาพลงในช่องอัปโหลด
+        
+        /* ตกแต่งปุ่มกดสลับหน้า */
+        .stButton > button {
+            background-color: #dcb799 !important;
+            color: white !important;
+            border-radius: 20px !important;
+            padding: 10px 25px !important;
+            font-weight: bold !important;
+            border: 2px solid #fff !important;
+            transition: 0.3s;
+        }
+        .stButton > button:hover {
+            background-color: #ffffff !important;
+            color: #2d3e33 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,170,0,0.4);
+        }
     </p>
     """, unsafe_allow_html=True)
 
