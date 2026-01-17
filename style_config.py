@@ -89,6 +89,8 @@ def apply_custom_style():
             margin-left: 850px;
             width: 350px;
             z-index: 1000;
+            /* ทำให้มุมโค้งมน */
+            border-radius: 25px;
         }
         </style>
     """, unsafe_allow_html=True)
