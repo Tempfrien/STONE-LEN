@@ -14,7 +14,7 @@ if 'page' not in st.session_state:
 def change_page(name):
     st.session_state.page = name
 
-# --- ZONE 2: Logic AI (โหลดโมเดลไว้ส่วนกลาง) ---
+# --- ZONE 2: Logic AI (โหลดโมเดล) ---
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model("keras_model.h5", compile=False)
@@ -41,7 +41,6 @@ if st.session_state.page == 'Main':
         change_page('Knowledge')
         st.rerun()
 
-    # แก้ไขการย่อหน้าตรงนี้เพื่อให้โค้ดรันได้
     st.markdown("""
     <p style="color: white; font-size: 20px; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
               position: relative; top: -10px; left: 10px;">
@@ -52,16 +51,18 @@ if st.session_state.page == 'Main':
     </p>
     """, unsafe_allow_html=True)
 
-    # ระบบเลือกนำเข้ารูปภาพ (Tabs)
+    # แก้ไขระบบ Tabs ให้ถูกต้อง (ตัด CSS ออกจากฟังก์ชัน Python)
     tab1, tab2 = st.tabs(["📸 ถ่ายภาพสด", "📁 อัปโหลดไฟล์"])
     source_img = None
 
     with tab1:
-        cam_file = st.camera_input("กดถ่ายภาพหิน")
+        # แก้ไข camera_input ให้ถูกต้อง
+        cam_file = st.camera_input("ถ่ายภาพหินจากกล้อง")
         if cam_file:
             source_img = cam_file
 
     with tab2:
+        # แก้ไข file_uploader ให้ถูกต้อง
         uploaded_file = st.file_uploader("เลือกรูปภาพจากเครื่อง", type=["jpg", "jpeg", "png"])
         if uploaded_file:
             source_img = uploaded_file
