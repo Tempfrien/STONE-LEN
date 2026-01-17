@@ -86,6 +86,7 @@ def apply_custom_style():
         .fixed-image {
             position: fixed;
             margin-top: -530px !important;
+            margin-left: -20px !important;
             right: 20px;
             width: 350px;
             z-index: 1000;
