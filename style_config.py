@@ -15,10 +15,12 @@ def apply_custom_style():
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-        
         }
-        /* สั่งซ่อน Footer มาตรฐานของ Streamlit (ไอคอนโปรไฟล์และมงกุฎ) */
+
+        /* ส่วนซ่อน Footer Streamlit */
         footer {visibility: hidden;}
+        .viewerBadge_container__1QSob {display: none !important;}
+        [data-testid="stStatusWidget"] {display: none !important;}
         
         /* สั่งซ่อนปุ่มปุ่มที่อาจจะค้างอยู่ตรงมุมขวาล่าง */
         .viewerBadge_container__1QSob {display: none !important;}
