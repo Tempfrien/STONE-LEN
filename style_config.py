@@ -85,6 +85,7 @@ def apply_custom_style():
         /* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพที่แปะไว้กับที่ (Fixed Image) --- */
         .fixed-image {
             position: fixed;
+            margin-top: -500px !important;
             bottom: 80px; /* ขยับขึ้นมาจาก Footer เล็กน้อย */
             right: 20px;
             width: 150px;
