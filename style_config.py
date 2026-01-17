@@ -97,11 +97,15 @@ def apply_custom_style():
             width: 350px;
             z-index: 1000;
             
-            /* 1. กำหนดความโค้ง */
+            /* บังคับตัดส่วนเกิน */
             border-radius: 100px !important;
-            
-            /* 2. บรรทัดนี้สำคัญมาก! สั่งให้ตัดรูปส่วนที่เกินความโค้งทิ้ง */
             overflow: hidden !important;
+        }
+
+        /* เพิ่มส่วนนี้: บังคับให้รูปข้างในโค้งตามด้วย */
+        .fixed-image img {
+            border-radius: 100px !important;
+            object-fit: cover; /* ป้องกันรูปเบี้ยวเวลาขยาย */
         }
         </style>
     """, unsafe_allow_html=True)
