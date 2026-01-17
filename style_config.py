@@ -87,22 +87,19 @@ def apply_custom_style():
         /* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพแบบ Fixed --- */
         .fixed-image {
             position: fixed;
-            margin-top: -530px !important;
-            margin-left: 850px;
+            /* เปลี่ยนจาก margin เป็นการกำหนดตำแหน่งคงที่ */
+            top: 150px;       /* ปรับระยะห่างจากขอบบนตามใจชอบ */
+            right: 50px;      /* ปรับระยะห่างจากขอบขวาตามใจชอบ */
             width: 350px;
             z-index: 1000;
             
-            /* ระบุความโค้ง: [บนซ้าย] [บนขวา] [ล่างขวา] [ล่างซ้าย] */
-            /* ตัวอย่างด้านล่างคือ: โค้งแค่มุมบนขวา 100px มุมอื่นเป็น 0 (เหลี่ยม) */
             border-radius: 0 0 0 35px !important; 
-            
             overflow: hidden !important;
             box-shadow: 0 0 0 rgba(0,0,0,0);
         }
 
         .fixed-image img {
             width: 100% !important;
-            /* ต้องแก้ให้ตรงกันทั้งที่กล่อง และที่ตัวรูปภาพด้วยครับ */
             border-radius: 0 0 0 35px !important;
             object-fit: cover;
         }
