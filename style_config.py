@@ -3,11 +3,14 @@ import streamlit as st
 def apply_custom_style():
     st.markdown("""
         <style>
-        /* --- ส่วนที่ 1: จัดการหน้าเว็บทั่วไป --- */
+        /* --- ส่วนที่ 1: จัดการหน้าเว็บและซ่อนองค์ประกอบระบบ --- */
         header {visibility: hidden;}
+        footer {visibility: hidden;}
         #MainMenu {visibility: hidden;}
         .stDeployButton {display:none;}
         [data-testid="stDecoration"] {display:none;}
+        [data-testid="stStatusWidget"] {display: none !important;}
+        .viewerBadge_container__1QSob {display: none !important;}
 
         .stApp {
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
@@ -17,20 +20,7 @@ def apply_custom_style():
             background-attachment: fixed;
         }
 
-        /* ส่วนซ่อน Footer Streamlit */
-        footer {visibility: hidden;}
-        .viewerBadge_container__1QSob {display: none !important;}
-        [data-testid="stStatusWidget"] {display: none !important;}
-        
-        /* สั่งซ่อนปุ่มปุ่มที่อาจจะค้างอยู่ตรงมุมขวาล่าง */
-        .viewerBadge_container__1QSob {display: none !important;}
-        [data-testid="stStatusWidget"] {display: none !important;}
-        
-        /* สั่งซ่อนส่วนที่ระบุว่าสร้างด้วย Streamlit */
-        #MainMenu {visibility: hidden;}
-        header {visibility: hidden;}
-
-        /* --- ส่วนที่ 2: หัวข้อ STONE LEN --- */
+        /* --- ส่วนที่ 2: หัวข้อ STONE LEN (Neon Style) --- */
         .main-title {
             color: #ffffff !important;
             font-size: 80px !important;
@@ -53,18 +43,11 @@ def apply_custom_style():
             width: 350px !important; 
             margin: 0 auto !important;
         }
-
         [data-testid="stFileUploader"] section {
             background-color: rgba(255, 255, 255, 0.9) !important;
             border-radius: 20px !important;
             padding: 30px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            text-align: center !important;
         }
-
-        
 
         /* --- ส่วนที่ 4: ปุ่ม Upload file --- */
         button[kind="secondary"] {
@@ -97,20 +80,16 @@ def apply_custom_style():
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* --- ส่วนที่ 6: สไตล์สำหรับรูปภาพแบบ Fixed --- */
+        /* --- ส่วนที่ 6: โลโก้มุมขวาบนขอบโค้ง --- */
         .fixed-image {
             position: fixed;
-            /* เปลี่ยนจาก margin เป็นการกำหนดตำแหน่งคงที่ */
-            top: 0;       /* ปรับระยะห่างจากขอบบนตามใจชอบ */
-            right: 0;      /* ปรับระยะห่างจากขอบขวาตามใจชอบ */
+            top: 0;
+            right: 0;
             width: 325px;
             z-index: 1000;
-            
             border-radius: 0 0 0 35px !important; 
             overflow: hidden !important;
-            box-shadow: 0 0 0 rgba(0,0,0,0);
         }
-
         .fixed-image img {
             width: 100% !important;
             border-radius: 0 0 0 35px !important;
@@ -119,19 +98,16 @@ def apply_custom_style():
 
         /* --- ส่วนที่ 7: กล่องแสดงผลการวิเคราะห์ AI --- */
         .result-box {
-            background-color: rgba(255, 255, 255, 0.9); /* สีขาว โปร่งแสงเล็กน้อย */
-            border-radius: 20px;       /* มุมโค้งมนเหมือนกล่องอัปโหลด */
-            padding: 25px;            /* เว้นระยะห่างจากขอบกล่องด้านใน */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูนูนขึ้นมา */
-            color: #333333 !important; /* บังคับให้ตัวหนังสือข้างในเป็นสีเข้มเพื่อให้อ่านง่าย */
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: #333333 !important;
             margin-top: 20px;
         }
-
         .result-box h2 {
-            color: #2d3e33 !important; /* สีหัวข้อผลการวิเคราะห์ */
+            color: #2d3e33 !important;
             margin-bottom: 15px;
         }
-
-
         </style>
     """, unsafe_allow_html=True)
